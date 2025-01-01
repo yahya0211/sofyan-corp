@@ -1,16 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
+import { routes } from "./routes";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div className="text-3xl text-red-900 font-bold">Hello Tailwind</div>
-    </>
-  );
+  return <RouterProvider router={createBrowserRouter(routes)} />;
 }
 
 export default App;

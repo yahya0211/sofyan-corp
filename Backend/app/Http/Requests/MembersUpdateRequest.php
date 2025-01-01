@@ -24,8 +24,8 @@ class MembersUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:100'],
-            'email' => ['nullable', 'email', 'max:100', 'unique:members'],
+            'name' => ['nullable', 'max:100'],
+            'email' => ['nullable', 'email', 'max:100'],
             'phone' => ['nullable', 'max:17'],
             'address' => ['nullable', 'max:200'],
         ];

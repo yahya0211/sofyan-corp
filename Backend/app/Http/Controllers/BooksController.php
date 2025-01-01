@@ -33,7 +33,6 @@ class BooksController extends Controller
         $books->member_id = $member->id; // Relasi ke Member
         $books->save();
 
-        // Return response dengan resource
         return (new BooksRecource($books))->response()->setStatusCode(201);
     }
 
@@ -47,6 +46,11 @@ class BooksController extends Controller
         }
 
         $books = Books::where('member_id', $member->id)->get();
+
+        $books = $books->map(function ($book) {
+            $book->status = (bool) $book->status; 
+            return $book;
+        });
 
         return response()->json([
             'success' => true,
